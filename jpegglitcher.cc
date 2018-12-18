@@ -27,7 +27,7 @@ JpegGlitcher::~JpegGlitcher()
     delete[] _outputBuffer;
 }
 
-cv::Mat JpegGlitcher::glitch(cv::Mat &input, int seed_0, int seed_1, int jpegQuality, int val_min, int val_max, double bytes_ratio)
+cv::Mat JpegGlitcher::glitch(cv::Mat &input, int seed_0, int seed_1, int jpegQuality, int val_min, int val_max, int amount )
 {
 
     // ASSERT IMAGE SIZE
@@ -59,8 +59,8 @@ cv::Mat JpegGlitcher::glitch(cv::Mat &input, int seed_0, int seed_1, int jpegQua
     std::uniform_int_distribution<int> uniform_dist_idx(px_min, px_max);
     std::uniform_int_distribution<int> uniform_dist_val(val_min, val_max);
 
-    int iterations = (int)((double)(delta) * bytes_ratio);
-    cerr << "iterations=" << iterations << endl;
+    int iterations = amount;//(int)((double)(delta) * bytes_ratio);
+    // cerr << "iterations=" << iterations << endl;
     for( int k = 0; k < iterations; ++k )
     {
         // Select location from rng0

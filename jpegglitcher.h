@@ -9,7 +9,7 @@ public:
     JpegGlitcher( int width, int height );
     virtual ~JpegGlitcher();
 
-    cv::Mat glitch(cv::Mat& input, int seed_0, int seed_1, int jpegQuality, int val_min, int val_max, double bytes_ratio );
+    cv::Mat glitch(cv::Mat& input, int seed_0, int seed_1, int jpegQuality, int val_min, int val_max, int amount );
 
 private:
     unsigned char * _jpegBuffer;
